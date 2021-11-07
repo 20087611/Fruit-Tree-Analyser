@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="850.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.recognition.gui.ui">
+
+    <VBox maxHeight="650.0" maxWidth="277.0" minHeight="634.0" minWidth="270.0" prefHeight="634.0" prefWidth="277.0" style="-fx-background-color: #eeeeee; -fx-background-radius: 8;" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="575.0" AnchorPane.topAnchor="8.0">
+        <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                <children>
+                      <Label alignment="CENTER" contentDisplay="CENTER" text="水果识别V1.0" textAlignment="CENTER">
+                          <font>
+                              <Font name="Calibri Bold" size="23.0" />
+                          </font>
+                      </Label>
+                </children>
+                <VBox.margin>
+                    <Insets bottom="8.0" right="8.0" top="8.0" />
+                </VBox.margin>
+            </HBox>
+            <Button mnemonicParsing="false" onAction="#chooseFile" prefHeight="50.0" prefWidth="292.0" style="-fx-background-color: #cc00EE; -fx-background-radius: 8;"  textFill="WHITE">
+                <font>
+                    <Font name="Calibri Bold" size="16.0" />
+                </font>
+                <graphic>
+                    <HBox prefHeight="100.0" prefWidth="200.0">
+                        <children>
+                            <ImageView fitHeight="23.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+                                <HBox.margin>
+                                    <Insets bottom="8.0" left="24.0" top="8.0" />
+                                </HBox.margin>
+                                <image>
+                                    <Image url="@image/fileicon.png" />
+                                </image>
+                            </ImageView>
+                            <Label prefHeight="56.0" prefWidth="253.0"  text="选择图片" textFill="WHITE">
+                                <font>
+                                    <Font name="Calibri Bold" size="16.0" />
+                                </font>
+                                <HBox.margin>
+                                    <Insets left="16.0" right="8.0" />
+                                </HBox.margin>
+                            </Label>
+                        </children>
+                    </HBox>
+                </graphic>
+                <VBox.margin>
+                    <Insets bottom="4.0" left="8.0" right="8.0" top="8.0" />
+                </VBox.margin>
+            </Button>
+            <Button fx:id="bwBut" mnemonicParsing="false" onAction="#displayBlackWhiteImage" prefHeight="50.0" prefWidth="292.0" style="-fx-background-color: #cc00EE; -fx-background-radius: 8;" textFill="WHITE">
+                <font>
+                    <Font name="Calibri Bold" size="16.0" />
+                </font>
+                <VBox.margin>
+                    <Insets bottom="4.0" left="8.0" right="8.0" top="4.0" />
+                </VBox.margin>
+                <graphic>
+                    <HBox prefHeight="100.0" prefWidth="200.0">
+                        <children>
+                            <ImageView fitHeight="23.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+                                <HBox.margin>
+                                    <Insets bottom="8.0" left="24.0" top="8.0" />
+                                </HBox.margin>
+                                <image>
+                                    <Image url="@image/greyscaleicon.png" />
+                                </image>
+                            </ImageView>
+                            <Label prefHeight="56.0" prefWidth="253.0" text="二值化" textFill="WHITE">
+                                <font>
+                                    <Font name="Calibri Bold" size="16.0" />
+                                </font>
+                                <HBox.margin>
+                                    <Insets left="16.0" right="8.0" />
+                                </HBox.margin>
+                            </Label>
+                        </children>
+                    </HBox>
+                </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#setPixelBorders" prefHeight="50.0" prefWidth="314.0" style="-fx-background-color: #cc00EE; -fx-background-radius: 8;" textFill="WHITE">
+                <font>
+                    <Font name="Calibri Bold" size="16.0" />
+                </font>
+                <VBox.margin>
+                    <Insets bottom="4.0" left="8.0" right="8.0" top="4.0" />
+                </VBox.margin>
+                <graphic>
+                    <HBox prefHeight="38.0" prefWidth="280.0">
+                        <children>
+                            <ImageView fitHeight="23.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@image/analysericon.png" />
+                                </image>
+                                <HBox.margin>
+                                    <Insets bottom="8.0" left="24.0" top="8.0" />
+                                </HBox.margin>
+                            </ImageView>
+                            <Label prefHeight="56.0" prefWidth="253.0" text="检测" textFill="WHITE">
+                                <font>
+                                    <Font name="Calibri Bold" size="16.0" />
+                                </font>
+                                <HBox.margin>
+                                    <Insets left="16.0" />
+                                </HBox.margin>
+                            </Label>
+                        </children>
+                    </HBox>
+                </graphic>
+            </Button>
+            <TextField fx:id="totalFruits" alignment="CENTER" editable="false" promptText="数量">
+                <VBox.margin>
+                    <Insets bottom="8.0" left="64.0" right="64.0" top="250.0" />
+                </VBox.margin>
+            </TextField>
+        </children>
+    </VBox>
+    <BorderPane layoutX="290.0" layoutY="29.0" prefHeight="618.0" prefWidth="574.0" style="-fx-background-color: #FFFFFF;">
+        <left>
+            <VBox prefHeight="382.0" prefWidth="286.0" BorderPane.alignment="CENTER">
+                <children>
+                    <Label fx:id="yourImage" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="361.0" text="选择图片" textAlignment="CENTER" visible="false">
+                        <font>
+                            <Font name="Calibri Bold" size="20.0" />
+                        </font>
+                        <VBox.margin>
+                            <Insets left="12.0" right="24.0" />
+                        </VBox.margin>
+                    </Label>
+                    <StackPane fx:id="stack" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="250.0" style="-fx-background-radius: 8;">
+                        <children>
+                            <StackPane fx:id="sizePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseMoved="#getClusterAtMouse" prefHeight="250.0" prefWidth="250.0" />
+                            <ImageView fx:id="chosenImageView" fitHeight="250.0" fitWidth="250.0" onMouseClicked="#getColourAtMouse" onMouseMoved="#getClusterAtMouse" pickOnBounds="true" preserveRatio="true" />
+                        </children>
+                        <VBox.margin>
+                            <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                        </VBox.margin>
+                    </StackPane>
+                </children>
+            </VBox>
+        </left>
+        <top>
+            <HBox prefHeight="115.0" prefWidth="574.0" BorderPane.alignment="CENTER">
+                <children>
+                    <Label fx:id="start" alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="574.0" text="请点击一种水果图片" visible="false">
+                        <font>
+                            <Font name="Calibri Bold" size="26.0" />
+                        </font>
+                    </Label>
+                </children>
+            </HBox>
+        </top>
+        <right>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                <children>
+                    <Label fx:id="bwVersion" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="372.0" text="二值化" textAlignment="CENTER" visible="false">
+                        <font>
+                            <Font name="Calibri Bold" size="20.0" />
+                        </font>
+                        <VBox.margin>
+                            <Insets left="24.0" right="12.0" />
+                        </VBox.margin>
+                    </Label>
+                    <StackPane prefHeight="250.0" prefWidth="250.0" style="-fx-background-radius: 8;">
+                        <children>
+                            <ImageView fx:id="blackWhiteImageView" fitHeight="250.0" fitWidth="250.0" onMouseClicked="#colourIndividualCluster" pickOnBounds="true" preserveRatio="true" />
+                        </children>
+                        <VBox.margin>
+                            <Insets bottom="12.0" left="24.0" right="12.0" top="12.0" />
+                        </VBox.margin>
+                    </StackPane>
+                </children>
+            </VBox>
+        </right>
+        <bottom>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                <children>
+                    <AnchorPane prefHeight="200.0" AnchorPane.bottomAnchor="5.0">
+                        <children>
+                            <HBox fx:id="colorSettings" layoutX="291.0" layoutY="80.0" prefHeight="68.0" prefWidth="275.0" style="-fx-background-radius: 8; -fx-background-color: #6200EE;" visible="false" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="291.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="80.0">
+                                <children>
+                                    <VBox>
+                                        <HBox.margin>
+                                            <Insets left="2.0" />
+                                        </HBox.margin>
+                                        <children>
+                                            <RadioButton fx:id="colorRadio" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showColoredFruits" prefHeight="19.0" prefWidth="285.0" text="显示随机颜色" textAlignment="CENTER" textFill="WHITE">
+                                                <font>
+                                                    <Font name="Calibri Bold" size="14.0" />
+                                                </font>
+                                                <VBox.margin>
+                                                    <Insets left="24.0" top="24.0" />
+                                                </VBox.margin>
+                                            </RadioButton>
+                                        </children>
+                                    </VBox>
+                                </children>
+                            </HBox>
+                            <HBox fx:id="recogSettings" prefHeight="181.0" prefWidth="558.0" style="-fx-background-radius: 8; -fx-background-color: #6200EE;" visible="false" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="8.0">
+                                <children>
+                                    <VBox prefHeight="128.0" prefWidth="305.0">
+                                        <children>
+                                            <Label alignment="CENTER" prefHeight="17.0" prefWidth="295.0" text="色调" textFill="WHITE">
+                                                <font>
+                                                    <Font name="Calibri Bold" size="14.0" />
+                                                </font>
+                                                <VBox.margin>
+                                                    <Insets left="4.0" right="4.0" top="12.0" />
+                                                </VBox.margin>
+                                            </Label>
+                                            <Slider fx:id="hueSlider" blockIncrement="1.0" max="360.0" onMouseDragged="#sliderAdjustments">
+                                                <VBox.margin>
+                                                    <Insets bottom="4.0" left="4.0" right="4.0" />
+                                                </VBox.margin>
+                                            </Slider>
+                                            <Label alignment="CENTER" prefHeight="17.0" prefWidth="295.0" text="饱和度" textFill="WHITE">
+                                                <font>
+                                                    <Font name="Calibri Bold" size="14.0" />
+                                                </font>
+                                            </Label>
+                                            <Slider fx:id="saturationSlider" blockIncrement="1.0E-4" max="2.0" onMouseDragged="#sliderAdjustments" value="1.0">
+                                                <VBox.margin>
+                                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                                </VBox.margin>
+                                            </Slider>
+                                            <Label alignment="CENTER" prefHeight="17.0" prefWidth="285.0" text="亮度" textFill="WHITE">
+                                                <font>
+                                                    <Font name="Calibri Bold" size="14.0" />
+                                                </font>
+                                                <VBox.margin>
+                                                    <Insets top="4.0" />
+                                                </VBox.margin>
+                                            </Label>
+                                            <Slider fx:id="brightnessSlider" blockIncrement="1.0E-4" max="2.0" onMouseDragged="#sliderAdjustments" value="1.0">
+                                                <VBox.margin>
+                                                    <Insets left="4.0" right="4.0" />
+                                                </VBox.margin>
+                                            </Slider>
+                                        </children>
+                                        <HBox.margin>
+                                            <Insets right="2.0" />
+                                        </HBox.margin>
+                                    </VBox>
+                                    <VBox prefHeight="128.0" prefWidth="300.0">
+                                        <children>
+                                            <RadioButton fx:id="outliers" mnemonicParsing="false" text="移除噪点" textFill="WHITE">
+                                                <font>
+                                                    <Font name="Calibri Bold" size="14.0" />
+                                                </font>
+                                                <VBox.margin>
+                                                    <Insets left="64.0" top="24.0" />
+                                                </VBox.margin>
+                                            </RadioButton>
+                                            <TextField fx:id="minClusterSize" promptText="最小聚类大小">
+                                                <VBox.margin>
+                                                    <Insets left="64.0" right="64.0" top="16.0" />
+                                                </VBox.margin>
+                                            </TextField>
+                                            <RadioButton fx:id="radio" mnemonicParsing="false" onAction="#showOnScreenSizes" text="显示聚类顺序" textFill="WHITE">
+                                                <font>
+                                                    <Font name="Calibri Bold" size="14.0" />
+                                                </font>
+                                                <VBox.margin>
+                                                    <Insets left="64.0" top="16.0" />
+                                                </VBox.margin>
+                                            </RadioButton>
+                                        </children>
+                                        <HBox.margin>
+                                            <Insets left="2.0" />
+                                        </HBox.margin>
+                                    </VBox>
+                                </children>
+                            </HBox>
+                            <HBox fx:id="menu" prefHeight="31.0" prefWidth="558.0" style="-fx-background-radius: 8; -fx-background-color: #6200EE;" visible="false" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="156.0">
+                                <children>
+                                    <Button contentDisplay="CENTER" graphicTextGap="1.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#minimizeMenu" prefHeight="42.0" prefWidth="63.0" style="-fx-background-radius: 8;" text="-" textAlignment="JUSTIFY" textFill="WHITE">
+                                        <font>
+                                            <Font name="Calibri Bold" size="19.0" />
+                                        </font>
+                                    </Button>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#displayRecogMenu" prefHeight="42.0" prefWidth="229.0" style="-fx-background-radius: 8;" text="识别设置" textAlignment="JUSTIFY" textFill="WHITE">
+                                        <font>
+                                            <Font name="Calibri Bold" size="15.0" />
+                                        </font>
+                                    </Button>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#displayColorMenu" prefHeight="42.0" prefWidth="279.0" style="-fx-background-radius: 8;" text="颜色设置" textAlignment="JUSTIFY" textFill="WHITE">
+                                        <font>
+                                            <Font name="Calibri Bold" size="15.0" />
+                                        </font>
+                                    </Button>
+                                </children>
+                            </HBox>
+                        </children>
+                    </AnchorPane>
+                    <AnchorPane fx:id="noMenu" prefHeight="205.0" prefWidth="574.0">
+                        <children>
+                            <Button contentDisplay="CENTER" graphicTextGap="1.0" layoutX="8.0" layoutY="156.0" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#displayMenu" prefHeight="41.0" prefWidth="44.0" style="-fx-background-radius: 24; -fx-background-color: #cc00EE;"  text="+" textAlignment="JUSTIFY" textFill="WHITE" AnchorPane.bottomAnchor="7.0">
+                                <font>
+                                    <Font name="Calibri Bold" size="24.0" />
+                                </font>
+                            </Button>
+                        </children>
+                    </AnchorPane>
+                </children>
+            </AnchorPane>
+        </bottom>
+    </BorderPane>
+</AnchorPane>
